@@ -44,6 +44,7 @@ em{font-style:normal;color:var(--accent)}
 /* Sections */
 main{overflow-x:clip}
 .panel{position:relative;display:block;padding:clamp(72px,8vw,100px) 0;scroll-margin-top:var(--hh)}
+main>.panel:not(.active){display:none}
 .hero{padding:clamp(48px,5vw,80px) 0 clamp(64px,7vw,104px)}
 .dark{background:var(--ink);color:#e9ece6}
 .alt{background:var(--paper2)}
@@ -385,7 +386,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
   <div class="kicker" data-en="Conrad Challenge · Precision spraying">Conrad Challenge · 精准植保</div>
   <h1 data-en="Every droplet,<br><em>right on target.</em>">让每一滴药液，<br><em>精准落在田间</em></h1>
   <p class="lead" data-en="AeroGuard helps crop-spraying drones fight the wind: it predicts where spray will drift, then actively guides it back onto the field — less waste, less pollution, and a wider safe-to-fly wind window.">AeroGuard 帮植保无人机对抗风的干扰：先算出药液会飘到哪里，再主动把它引回田里——少浪费、少污染，扩大可安全作业的风速窗口。</p>
-  <div class="ctas"><a class="cta" href="#solution"><span data-en="Explore the solution">了解方案</span> <b>→</b></a><span class="hint"><i></i><span data-en="Scroll to read on">向下滚动继续阅读</span></span></div>
+  <div class="ctas"><a class="cta" href="#solution"><span data-en="Explore the solution">了解方案</span> <b>→</b></a><span class="hint"><i></i><span data-en="Use the menu above to switch sections">点击顶部栏目切换内容</span></span></div>
   <div class="grid3">
    <div><div class="num count-up">88.98<small>%</small></div><div class="label" data-en="In-field deposition">田内沉积占比</div></div>
    <div><div class="num count-up">12,000</div><div class="label" data-en="Simulated droplets">代表液滴仿真</div></div>
@@ -770,19 +771,23 @@ const countUp=el=>{const t=el.firstChild;if(!t||t.nodeType!==3)return;
  const step=now=>{const p=Math.min((now-t0)/dur,1),e=1-Math.pow(1-p,3);t.nodeValue=p<1?out(end*e):raw;if(p<1)el._raf=requestAnimationFrame(step)};
  t.nodeValue=out(0);el._raf=requestAnimationFrame(step)};
 
-// 连续滚动：滚动监听高亮导航、进入视口时播放入场动画
+// 栏目切换：只能通过点击栏目链接切换，滚动只在当前栏目内进行
 const header=document.querySelector('.header'),bar=document.getElementById('progress'),toTop=document.getElementById('toTop');
 const setCurrent=id=>{links.forEach(a=>a.classList.toggle('current',a.getAttribute('href')==='#'+id));
  const n=links.find(a=>a.classList.contains('current'));
  if(n&&n.parentNode.scrollWidth>n.parentNode.clientWidth)n.parentNode.scrollTo({left:n.offsetLeft-40,behavior:'smooth'})};
+const show=id=>{const p=panels.find(s=>s.id===id)||panels[0];
+ panels.forEach(s=>s.classList.toggle('active',s===p));
+ setCurrent(p.id);scrollTo({top:0,behavior:'instant'});onScroll()};
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;
+ const id=a.getAttribute('href').slice(1);if(!panels.some(s=>s.id===id))return;
+ e.preventDefault();if(location.hash!=='#'+id)history.pushState(null,'','#'+id);show(id)});
+addEventListener('popstate',()=>show(location.hash.slice(1)));
 const onScroll=()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
  bar.style.setProperty('--sp',h>0?Math.min(1,y/h):0);
- header.classList.toggle('scrolled',y>8);toTop.classList.toggle('show',y>innerHeight);
- const line=header.offsetHeight+innerHeight*.3;let cur=panels[0].id;
- panels.forEach(p=>{if(p.getBoundingClientRect().top<=line)cur=p.id});
- if(innerHeight+y>=document.documentElement.scrollHeight-2)cur=panels[panels.length-1].id;
- setCurrent(cur)};
-addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+ header.classList.toggle('scrolled',y>8);toTop.classList.toggle('show',y>innerHeight)};
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);
+show(location.hash.slice(1));
 toTop.addEventListener('click',()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
 
 const anim=[...document.querySelectorAll('.reveal,.bars,.meters,.hero-img')];
