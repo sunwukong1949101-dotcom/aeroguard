@@ -291,8 +291,8 @@ dfn.t:hover,dfn.t:focus-visible,dfn.t.on{color:var(--accent);outline:0}
 .c-area{fill:rgba(47,106,74,.08)}
 .c-line{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
 .c-cross{stroke:rgba(17,26,21,.35);stroke-dasharray:2 3}
-.c-pt{fill:var(--paper2);stroke:var(--accent);stroke-width:1.6}
-.c-pt.base,.c-pt.on{fill:var(--accent)}
+.c-pt{fill:var(--accent);stroke:var(--paper);stroke-width:1.5;paint-order:stroke}
+.c-pt.on{stroke-width:2.5}
 .c-tip rect{fill:var(--ink)}
 .chart .c-tip text{fill:var(--paper)}
 .chart .c-tip .c-tb{font-size:13px;font-weight:500}
@@ -306,7 +306,7 @@ dfn.t:hover,dfn.t:focus-visible,dfn.t.on{color:var(--accent);outline:0}
 .dt tbody tr:hover,.dt tbody tr.on{background:rgba(47,106,74,.07)}
 .dt tbody tr:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 .dt tr.base td:first-child{font-weight:600}
-.dt td.m{color:var(--accent);font-weight:500;background:linear-gradient(90deg,rgba(47,106,74,.14) var(--b),transparent 0) no-repeat 0 50%/100% 56%}
+.dt td.m{color:var(--accent);font-weight:500;background:linear-gradient(90deg,var(--accent) var(--b),rgba(47,106,74,.14) 0) no-repeat 0 calc(100% - 6px)/calc(100% - 14px) 3px}
 .dt .badge{margin-left:0}
 
 /* Footer */
@@ -621,7 +621,7 @@ dfn.t:hover,dfn.t:focus-visible,dfn.t.on{color:var(--accent);outline:0}
  <header class="sec-head reveal">
   <div class="kicker" data-en="Wind sweep">风速扫描</div>
   <h2 data-en="Each step up in wind <em>has a visible cost.</em>">风每大一级，<em>代价都看得见</em></h2>
-  <p class="lead" data-en="Eight simulated wind speeds with the same route and spray settings. Switch the metric, hover the curve, or sort the table.">同一航线与喷洒参数下的 8 档风速仿真。切换指标、悬停曲线，或点击表头排序。</p>
+  <p class="lead" data-en="Nine simulated wind speeds with the same route and spray settings. Switch the metric, hover the curve, or sort the table.">同一航线与喷洒参数下的 9 档风速仿真。切换指标、悬停曲线，或点击表头排序。</p>
  </header>
  <div class="cols even">
  <div class="reveal">
@@ -671,7 +671,7 @@ dfn.t:hover,dfn.t:focus-visible,dfn.t.on{color:var(--accent);outline:0}
   <div class="meter warn"><div><div class="num count-up">45.9<small>%</small></div></div><div><h3><span data-en="<dfn class='t' data-t='cv' tabindex='0'>Coefficient of variation</dfn>"><dfn class="t" data-t="cv" tabindex="0">变异系数 CV</dfn></span><span class="badge w" data-en="Focus">优化重点</span></h3><p data-en="Deposition is still uneven — the next thing to improve.">沉积仍不够均匀，是下一步优化的重点。</p><div class="gauge" style="--v:45.9%"><i></i></div></div></div>
  </div>
  <figure class="fig wide reveal">
-  <img src="assets/deposition.svg" alt="基线工况沉积场热图" loading="lazy" width="519" height="350">
+  <img src="assets/deposition.svg" alt="基线工况沉积场热图" loading="lazy" width="519" height="348">
   <figcaption data-en="Baseline deposition field (2.0 m/s crosswind, 10 passes). Green frame: field · dashed: spray segments · dotted: 3 m <dfn class='t' data-t='headland' tabindex='0'>headland</dfn> flown with nozzles off · red outline: off-field drift. Bright streaks under each pass and dips between them are the unevenness behind CV 45.9%.">基线沉积场（2.0 m/s 横风，10 趟）。绿框=田界 · 虚线=喷洒段 · 点线=<dfn class="t" data-t="headland" tabindex="0">田头</dfn> 3 m 只飞不喷 · 红描边=田外漂移区。每趟航线下方偏亮、两趟之间偏暗，正是 CV 45.9% 的来源。</figcaption>
  </figure>
 </div></div></section>
@@ -852,8 +852,8 @@ const NS='http://www.w3.org/2000/svg';
 const mk=(tag,at,p)=>{const e=document.createElementNS(NS,tag);for(const k in at)e.setAttribute(k,at[k]);if(p)p.appendChild(e);return e};
 const tx=(p,x,y,s,cls,anchor)=>{const t=mk('text',{x,y,'text-anchor':anchor||'start'},p);if(cls)t.setAttribute('class',cls);t.textContent=s;return t};
 const fmt=v=>v<10?v.toFixed(2):v<100?v.toFixed(1):String(Math.round(v));
-const WIND=[.5,1,2,3,4,5,6,8];
-const DATA={in:[96.68,94.66,89.88,84.40,79.03,74.58,69.29,60.45],off:[3.322,5.344,10.124,15.6,20.974,25.423,30.709,39.55],far:[136,241.3,451.9,662.5,873.1,1083.7,1294.3,1715.5],peak:[.3009,.3396,.3207,.3194,.297,.2642,.2474,.2512]};
+const WIND=[.5,1,2,3,4,5,6,7,8];
+const DATA={in:[96.68,94.66,89.88,84.40,79.03,74.58,69.29,64.78,60.45],off:[3.322,5.344,10.124,15.6,20.974,25.423,30.709,35.216,39.55],far:[136,241.3,451.9,662.5,873.1,1083.7,1294.3,1504.9,1715.5],peak:[.3009,.3396,.3207,.3194,.297,.2642,.2474,.2549,.2512]};
 const interp=(xs,ys,x)=>{if(x<=xs[0])return ys[0];for(let i=1;i<xs.length;i++)if(x<=xs[i])return ys[i-1]+(x-xs[i-1])/(xs[i]-xs[i-1])*(ys[i]-ys[i-1]);return ys[ys.length-1]};
 const status=u=>u<2.95?['合规','OK','']:u<=3.05?['临界','Borderline','w']:u<=5?['慎飞','Caution','w']:['不宜作业','Unsuitable','x'];
 
@@ -913,7 +913,7 @@ if(sim){
   $('oM').innerHTML=off.toFixed(1)+'<small>%</small>';
   $('oS').innerHTML=`<span class="badge ${sc}">${L(sz,se)}</span>`;
   const over=r.d-EDGE;
-  $('oNote').innerHTML=L(`<b>最外侧航线距田边 3 m：</b>${SIZE[di]} µm 液滴${over>0?'越过田边约 '+fmt(over)+' m':'落在田内'}。出田质量按 8 档风速仿真插值；示意未计蒸发与湍流。`,`<b>Outermost pass is 3 m from the edge:</b> ${SIZE[di]} µm droplets ${over>0?'cross it by ~'+fmt(over)+' m':'land inside the field'}. Off-field mass is interpolated from 8 simulated wind speeds; evaporation and turbulence not shown.`)};
+  $('oNote').innerHTML=L(`<b>最外侧航线距田边 3 m：</b>${SIZE[di]} µm 液滴${over>0?'越过田边约 '+fmt(over)+' m':'落在田内'}。出田质量按 9 档风速仿真插值；示意未计蒸发与湍流。`,`<b>Outermost pass is 3 m from the edge:</b> ${SIZE[di]} µm droplets ${over>0?'cross it by ~'+fmt(over)+' m':'land inside the field'}. Off-field mass is interpolated from 9 simulated wind speeds; evaporation and turbulence not shown.`)};
  const tick=ts=>{const n=drops.length;drops.forEach((c,i)=>{const f=(ts/2400+i/n)%1;
   c.setAttribute('cx',path.x0+(path.x1-path.x0)*f);c.setAttribute('cy',path.y0+(path.y1-path.y0)*f);c.setAttribute('opacity',Math.min(1,f/.08,(1-f)/.08))});
   if(run)requestAnimationFrame(tick)};
@@ -928,7 +928,7 @@ if(sim){
 // 风速扫描：曲线 + 表格
 const chart=document.getElementById('chart'),dt=document.getElementById('dt');
 if(chart&&dt){
- const ST=[0,0,0,1,2,2,3,3],STC=['','w','w','x'],STZ=['合规','临界','慎飞','超国标'],STE=['OK','Borderline','Caution','Over limit'];
+ const ST=[0,0,0,1,2,2,3,3,3],STC=['','w','w','x'],STZ=['合规','临界','慎飞','超国标'],STE=['OK','Borderline','Caution','Over limit'];
  const M={in:{lo:50,hi:100,st:10,f:v=>v.toFixed(2)+'%',a:v=>v+'%',thr:85},
   off:{lo:0,hi:45,st:15,f:v=>v.toFixed(3)+'%',a:v=>v+'%'},
   far:{lo:0,hi:2000,st:500,f:v=>v.toFixed(1)+' m',a:v=>v},
@@ -938,10 +938,10 @@ if(chart&&dt){
  let key='in',hl=2,sortK='w',dir=1,Y,pts=[],cross,tip,tipR,tipA,tipB;
  const setHL=i=>{hl=i;const m=M[key],x=X(WIND[i]),y=Y(DATA[key][i]);
   cross.setAttribute('x1',x);cross.setAttribute('x2',x);
-  pts.forEach((p,k)=>{p.classList.toggle('on',k===i);p.setAttribute('r',k===i?6:k===2?4.5:3.5)});
+  pts.forEach((p,k)=>{p.classList.toggle('on',k===i);p.setAttribute('r',k===i?6:k===2?5:4)});
   tipA.textContent=WIND[i].toFixed(1)+' m/s · '+L(STZ[ST[i]],STE[ST[i]]);tipB.textContent=m.f(DATA[key][i]);
   const w=Math.max(tipA.getComputedTextLength(),tipB.getComputedTextLength())+20;
-  let px=x+12,py=y-52;if(px+w>PR+10)px=x-12-w;if(py<2)py=y+12;
+  const P=WIND.map((v,k)=>[X(v),Y(DATA[key][k])]),S=[];for(let k=1;k<P.length;k++)for(let t=0;t<1;t+=.05)S.push([P[k-1][0]+(P[k][0]-P[k-1][0])*t,P[k-1][1]+(P[k][1]-P[k-1][1])*t]);S.push(P[P.length-1]);let px,py,best=1e9;[[x+14,y-56],[x+14,y+14],[x-14-w,y-56],[x-14-w,y+14],[x-w/2,y-64],[x-w/2,y+20],[x+14,y-96],[x-14-w,y-96]].forEach(([cx,cy],n)=>{if(cx<PL-6||cx+w>PR+12||cy<0||cy+42>PB+8)return;const c=S.filter(([u,v])=>u>cx-6&&u<cx+w+6&&v>cy-6&&v<cy+48).length*10+n;if(c<best){best=c;px=cx;py=cy}});if(px===undefined){px=Math.min(Math.max(x-w/2,PL),PR-w);py=PT}
   tipR.setAttribute('width',w);tip.setAttribute('transform',`translate(${px} ${py})`);
   [...body.rows].forEach(r=>r.classList.toggle('on',+r.dataset.i===i))};
  const draw=()=>{const m=M[key];Y=v=>PB-(v-m.lo)/(m.hi-m.lo)*(PB-PT);chart.textContent='';
@@ -956,7 +956,7 @@ if(chart&&dt){
   mk('path',{d:d+`L${X(8)} ${PB}L${X(.5)} ${PB}Z`,class:'c-area'},chart);
   const line=mk('path',{d,class:'c-line',pathLength:1},chart);
   cross=mk('line',{y1:PT,y2:PB,class:'c-cross'},chart);
-  pts=WIND.map((w,i)=>mk('circle',{cx:X(w),cy:Y(DATA[key][i]),r:3.5,class:'c-pt'+(i===2?' base':'')},chart));
+  pts=WIND.map((w,i)=>mk('circle',{cx:X(w),cy:Y(DATA[key][i]),r:4,class:'c-pt'+(i===2?' base':'')},chart));
   tip=mk('g',{class:'c-tip','pointer-events':'none'},chart);tipR=mk('rect',{rx:4,height:42},tip);
   tipA=mk('text',{x:10,y:17},tip);tipB=mk('text',{x:10,y:33,class:'c-tb'},tip);
   const ov=mk('rect',{x:PL-10,y:PT,width:PR-PL+20,height:PB-PT,fill:'transparent'},chart);
