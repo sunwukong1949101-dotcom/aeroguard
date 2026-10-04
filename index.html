@@ -228,6 +228,12 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
 .gloss{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 22px;margin:4px 0 0}
 .gloss dt{font:500 14px/1.4 var(--serif);color:var(--ink)}
 .gloss dd{margin:2px 0 0;font-size:12.5px;line-height:1.65}
+dfn.t{font-style:normal;white-space:nowrap;cursor:help;text-decoration:underline dotted rgba(47,106,74,.6);text-decoration-thickness:1px;text-underline-offset:3px;transition:color .2s}
+dfn.t:hover,dfn.t:focus-visible,dfn.t.on{color:var(--accent);outline:0}
+.tip{position:fixed;z-index:300;left:0;top:0;max-width:min(300px,calc(100vw - 24px));padding:10px 13px 11px;border-radius:6px;background:var(--ink);color:#f5f3ee;font:400 12.5px/1.7 var(--sans);letter-spacing:0;text-transform:none;text-align:left;box-shadow:0 10px 30px rgba(17,26,21,.18);opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .15s,transform .15s,visibility .15s;pointer-events:none}
+.tip.on{opacity:1;visibility:visible;transform:none}
+.tip b{display:block;margin-bottom:3px;font-weight:500;color:#cfe3d6}
+.plain .plain-note{margin-top:8px;font-size:12px;color:var(--muted);opacity:.85}
 .fig{margin:26px 0 0;padding:16px 16px 14px;border-radius:6px;background:var(--paper2)}
 .alt .fig{background:var(--paper)}
 .fig img{width:100%;height:auto}
@@ -395,21 +401,23 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  <div class="reveal">
   <div class="kicker" data-en="Conrad Challenge · Precision spraying">Conrad Challenge · 精准植保</div>
   <h1 data-en="Every droplet,<br><em>right on target.</em>">让每一滴药液，<br><em>精准落在田间</em></h1>
-  <p class="lead" data-en="AeroGuard helps crop-spraying drones fight the wind: it predicts where spray will drift, then actively guides it back onto the field — less waste, less pollution, and a wider safe-to-fly wind window.">AeroGuard 帮植保无人机对抗风的干扰：先算出药液会飘到哪里，再主动把它引回田里——少浪费、少污染，扩大可安全作业的风速窗口。</p>
+  <p class="lead" data-en="AeroGuard helps crop-spraying drones fight the wind: it predicts where spray will drift, then actively guides it back onto the field — less waste, less pollution, and a wider safe-to-fly <dfn class='t' data-t='window' tabindex='0'>wind window</dfn>.">AeroGuard 帮植保无人机对抗风的干扰：先算出药液会飘到哪里，再主动把它引回田里——少浪费、少污染，扩大可安全作业的<dfn class="t" data-t="window" tabindex="0">风速窗口</dfn>。</p>
   <div class="ctas"><a class="cta" href="#solution"><span data-en="Explore the solution">了解方案</span> <b>→</b></a><span class="hint"><i></i><span data-en="Use the menu above to switch sections">点击顶部栏目切换内容</span></span></div>
   <div class="grid3">
-   <div><div class="num count-up">88.98<small>%</small></div><div class="label" data-en="In-field deposition">田内沉积占比</div></div>
-   <div><div class="num count-up">12,000</div><div class="label" data-en="Simulated droplets">代表液滴仿真</div></div>
-   <div><div class="num count-up">26<small>/ 26</small></div><div class="label" data-en="Readings cross-checked">关键读数独立复核</div></div>
+   <div><div class="num count-up">88.98<small>%</small></div><div class="label" data-en="<dfn class='t' data-t='inmass' tabindex='0'>In-field deposition</dfn>"><dfn class="t" data-t="inmass" tabindex="0">田内沉积占比</dfn></div></div>
+   <div><div class="num count-up">12,000</div><div class="label" data-en="<dfn class='t' data-t='rep' tabindex='0'>Simulated droplets</dfn>"><dfn class="t" data-t="rep" tabindex="0">代表液滴仿真</dfn></div></div>
+   <div><div class="num count-up">26<small>/ 26</small></div><div class="label" data-en="<dfn class='t' data-t='cross' tabindex='0'>Readings cross-checked</dfn>"><dfn class="t" data-t="cross" tabindex="0">关键读数独立复核</dfn></div></div>
   </div>
   <p class="note" data-en="Baseline simulation at 2.0 m/s crosswind; field validation pending.">2.0 m/s 横风基线仿真结果，尚待田间验证。</p>
   <div class="plain"><span class="plain-h" data-en="IN PLAIN WORDS">通俗地说</span>
    <p data-en="Spraying by drone is like using a mister on a windy day — the finer the mist, the more the wind carries it off. AeroGuard predicts where the spray will drift, then uses airflow to press it back onto the crop.">无人机打药就像有风天用喷壶浇花——水雾越细，越容易被风带跑。AeroGuard 先算出药会飘到哪里，再用气流把它“按”回作物上。</p>
+   <p data-en="<b>Off-field mass 10.12%</b>: by weight, 10.12% of the spray was blown out of the field — lower is better."><b>出田质量 10.12%</b>：按重量算，有 10.12% 的药液被风吹出了田——越小越好。</p>
+   <p class="plain-note" data-en="Hover or tap dotted words for a quick explanation.">带虚线的词可悬停或点按查看解释。</p>
   </div>
  </div>
  <figure class="hero-img reveal d1"><img src="assets/after.jpg" alt="植保无人机在田间喷洒作业" fetchpriority="high">
-  <div class="chip c1"><i></i><div><span data-en="Steady crosswind">定常横风</span><b>2.0 m/s</b></div></div>
-  <div class="chip c2"><div><span data-en="Off-field mass">出田质量</span><b>10.12%</b></div></div>
+  <div class="chip c1"><i></i><div><span data-en="<dfn class='t' data-t='steady' tabindex='0'>Steady crosswind</dfn>"><dfn class="t" data-t="steady" tabindex="0">定常横风</dfn></span><b>2.0 m/s</b></div></div>
+  <div class="chip c2"><div><span data-en="<dfn class='t' data-t='offmass' tabindex='0'>Off-field mass</dfn>"><dfn class="t" data-t="offmass" tabindex="0">出田质量</dfn></span><b>10.12%</b></div></div>
  </figure>
 </div></section>
 
@@ -424,12 +432,12 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  <div class="reveal">
   <div class="duo">
    <div><span class="tag" data-en="Time to fall 2.5 m">下落 2.5 m 用时</span>
-    <div class="row"><span>400 µm</span><b>1.62 s</b></div>
+    <div class="row"><span>400 <dfn class="t" data-t="um" tabindex="0">µm</dfn></span><b>1.62 s</b></div>
     <div class="row"><span>100 µm</span><b>10.51 s</b></div>
     <div class="row em"><span>20 µm</span><b>210.6 s</b></div></div>
    <div><span class="tag" data-en="Off-field share">出田占比</span>
     <div class="row"><span data-en="By count">按液滴数量</span><b>41.81%</b></div>
-    <div class="row em"><span data-en="By mass">按药液质量</span><b>10.12%</b></div>
+    <div class="row em"><span data-en="<dfn class='t' data-t='bymass' tabindex='0'>By mass</dfn>"><dfn class="t" data-t="bymass" tabindex="0">按药液质量</dfn></span><b>10.12%</b></div>
     <div class="row"><span data-en="Max drift">最远漂移</span><b>451.9 m</b></div></div>
   </div>
   <p class="caveat" data-en="Fine droplets are many but light: count and mass must be read separately. Max drift is a 20 µm, no-evaporation upper bound.">飘出去的多是细小液滴：数量多、药量少，两者要分开看。最远漂移为 20 µm、无蒸发假设上限。</p>
@@ -449,8 +457,8 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
    <div class="bars-note"><span><i></i><span data-en="Baseline 2.0 m/s">基线 2.0 m/s</span></span><span><i class="w"></i><span data-en="Below the 85% in-field line">田内落点低于 85%</span></span></div>
   </div>
   <div class="grid3">
-   <div><div class="num">3.0<small>m/s</small></div><p data-en="In-field deposition drops to 84.40% — below the 85% line.">田内落点降至 84.40%，跌破 85% 达标线。</p></div>
-   <div><div class="num">&gt;5<small>m/s</small></div><p data-en="DB37/T 3940-2020: fly with caution above 3 m/s, unsuitable above 5 m/s.">DB37/T 3940-2020：>3 m/s 慎飞，>5 m/s 不宜作业。</p></div>
+   <div><div class="num">3.0<small>m/s</small></div><p data-en="In-field deposition drops to 84.40% — below the <dfn class='t' data-t='target' tabindex='0'>85% line</dfn>.">田内落点降至 84.40%，跌破 <dfn class="t" data-t="target" tabindex="0">85% 达标线</dfn>。</p></div>
+   <div><div class="num">&gt;5<small>m/s</small></div><p data-en="<dfn class='t' data-t='db' tabindex='0'>DB37/T 3940-2020</dfn>: fly with caution above 3 m/s, unsuitable above 5 m/s."><dfn class="t" data-t="db" tabindex="0">DB37/T 3940-2020</dfn>：>3 m/s 慎飞，>5 m/s 不宜作业。</p></div>
    <div><div class="num">3<small>×</small></div><p data-en="Three costs: polluted water and habitats, higher input costs, lost flying days.">三重代价：污染水体生态、推高药费、只能等无风天。</p></div>
   </div>
  </div>
@@ -468,7 +476,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
   <div class="steps">
    <div class="step"><span>01</span><b data-en="Sense the wind">感知风向</b><p data-en="Read wind speed and direction during flight — like checking which way the wind blows before throwing a ball.">作业中实时获取风速与风向——就像扔球前先看看风往哪边吹。</p></div>
    <div class="step"><span>02</span><b data-en="Compute the correction">计算修正</b><p data-en="The model predicts where droplets will land and how far the wind will push them off course.">用模型预测液滴会落在哪里、会被风推偏多远。</p></div>
-   <div class="step"><span>03</span><b data-en="Steer the airflow">偏转导流</b><p data-en="Tilt the nozzle airflow slightly into the wind so it cancels out the sideways push.">把喷嘴和下压气流朝迎风方向偏一点，抵消风的侧向推力。</p></div>
+   <div class="step"><span>03</span><b data-en="Steer the airflow">偏转导流</b><p data-en="Tilt the <dfn class='t' data-t='downwash' tabindex='0'>nozzle airflow</dfn> slightly into the wind so it cancels out the sideways push.">把喷嘴和<dfn class="t" data-t="downwash" tabindex="0">下压气流</dfn>朝迎风方向偏一点，抵消风的侧向推力。</p></div>
    <div class="step"><span>04</span><b data-en="Land on target">落回目标</b><p data-en="Droplets fall faster and straighter onto the crop instead of leaving the field.">液滴更快、更直地落到作物上，而不是飘出田外。</p></div>
   </div>
   <div class="plain"><span class="plain-h" data-en="IN PLAIN WORDS">通俗地说</span>
@@ -476,7 +484,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
   </div>
   <figure class="fig">
    <img src="assets/swath.svg" alt="喷幅、航线间距与重叠示意图" loading="lazy" width="517" height="193">
-   <figcaption data-en="How the route is spaced: 8.0 m swath × (1 − 20%) = 6.4 m max step → ceil(60 ÷ 6.4) = 10 passes → 6.0 m apart, so neighbours actually overlap by 2.0 m (25%).">航线间距怎么来：8.0 m 喷幅 ×（1 − 20%）= 最大步进 6.4 m → 60 ÷ 6.4 向上取整 = 10 趟 → 间距 6.0 m，相邻两趟实际重叠 2.0 m（25%）。</figcaption>
+   <figcaption data-en="How the route is spaced: 8.0 m <dfn class='t' data-t='swath' tabindex='0'>swath</dfn> × (1 − 20%) = 6.4 m max step → ceil(60 ÷ 6.4) = 10 passes → 6.0 m apart, so neighbours actually overlap by 2.0 m (25%).">航线间距怎么来：8.0 m <dfn class="t" data-t="swath" tabindex="0">喷幅</dfn> ×（1 − 20%）= 最大步进 6.4 m → 60 ÷ 6.4 向上取整 = 10 趟 → 间距 6.0 m，相邻两趟实际重叠 2.0 m（25%）。</figcaption>
   </figure>
  </div>
  <div class="reveal d1">
@@ -487,7 +495,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
   </div>
   <div class="ba-cap"><span>BEFORE / AFTER</span><span data-en="Drag to compare">拖动中线对比</span></div>
   <div class="points">
-   <div><b data-en="True to life">贴近真实</b><p data-en="Droplet size, gusts and boom sway are modelled separately.">液滴大小、阵风、喷杆晃动分别建模。</p></div>
+   <div><b data-en="True to life">贴近真实</b><p data-en="Droplet size, gusts and <dfn class='t' data-t='boom' tabindex='0'>boom sway</dfn> are modelled separately.">液滴大小、阵风、<dfn class="t" data-t="boom" tabindex="0">喷杆晃动</dfn>分别建模。</p></div>
    <div><b data-en="Gaps made visible">漏喷看得见</b><p data-en="Fine grid for deposition, 3 m blocks for missed spots.">细网格看落药，大方块找漏喷。</p></div>
    <div><b data-en="Clear standards">标准清晰</b><p data-en="Project targets and industry wind limits shown side by side.">项目达标线与行业风速标准分开标注。</p></div>
   </div>
@@ -509,18 +517,18 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  </header>
  <div class="cols">
  <div class="reveal">
-  <div class="proof"><div class="num count-up">12,000</div><p data-en="representative droplets, sampled from a Gamma distribution with a fixed random seed — fully reproducible.">颗代表液滴，按 Gamma 分布抽样、固定随机种子，结果可完整复现。</p></div>
+  <div class="proof"><div class="num count-up">12,000</div><p data-en="representative droplets, sampled from a Gamma distribution with a <dfn class='t' data-t='seed' tabindex='0'>fixed random seed</dfn> — fully reproducible.">颗代表液滴，按 Gamma 分布抽样、<dfn class="t" data-t="seed" tabindex="0">固定随机种子</dfn>，结果可完整复现。</p></div>
   <div class="specs two">
-   <div><span data-en="Mean droplet size">滴谱均值</span><b>132.25<small>µm</small></b></div>
+   <div><span data-en="<dfn class='t' data-t='dsd' tabindex='0'>Mean droplet size</dfn>"><dfn class="t" data-t="dsd" tabindex="0">滴谱</dfn>均值</span><b>132.25<small>µm</small></b></div>
    <div><span data-en="Size range">粒径范围</span><b>20–600<small>µm</small></b></div>
-   <div><span data-en="Deposition grid">沉积网格</span><b>400 × 267</b></div>
+   <div><span data-en="<dfn class='t' data-t='grid' tabindex='0'>Deposition grid</dfn>"><dfn class="t" data-t="grid" tabindex="0">沉积网格</dfn></span><b>400 × 267</b></div>
    <div><span data-en="Mass conservation">守恒校验</span><b>0.999973</b></div>
   </div>
   <figure class="fig">
    <img src="assets/dsd.svg" alt="数量加权与质量加权的滴谱对比" loading="lazy" width="417" height="222">
-   <figcaption data-en="Droplet spectrum by count vs by mass. Fine drops are the majority, but mass ∝ D³ puts most of the chemical in coarse drops — only 1,964 droplets (16%) effectively carry the dose.">滴谱：按数量 vs 按质量。细滴占多数，但质量 ∝ D³，药量主要在粗滴里——实际起作用的有效样本只有 1964 颗（16%）。</figcaption>
+   <figcaption data-en="Droplet spectrum by count vs by mass. Fine drops are the majority, but <dfn class='t' data-t='d3' tabindex='0'>mass ∝ D³</dfn> puts most of the chemical in coarse drops — only 1,964 droplets (16%) <dfn class='t' data-t='ess' tabindex='0'>effectively carry the dose</dfn>.">滴谱：按数量 vs 按质量。细滴占多数，但<dfn class="t" data-t="d3" tabindex="0">质量 ∝ D³</dfn>，药量主要在粗滴里——实际起作用的<dfn class="t" data-t="ess" tabindex="0">有效样本</dfn>只有 1964 颗（16%）。</figcaption>
   </figure>
-  <p class="caveat" data-en="<b>Note:</b> these checks confirm the model is implemented consistently. A single-nozzle field test has been used to correct the falling stage (below); whole-aircraft field effect will be tested in the pilot."><b>说明：</b>校核验证的是模型实现一致性；单喷头实测已用于修正下落阶段（见下图），整机田间效果仍待试点检验。</p>
+  <p class="caveat" data-en="<b>Note:</b> these checks confirm the model is <dfn class='t' data-t='impl' tabindex='0'>implemented consistently</dfn>. A single-nozzle field test has been used to correct the falling stage (below); whole-aircraft field effect will be tested in the pilot."><b>说明：</b>校核验证的是<dfn class="t" data-t="impl" tabindex="0">模型实现一致性</dfn>；单喷头实测已用于修正下落阶段（见下图），整机田间效果仍待试点检验。</p>
   <div class="plain"><span class="plain-h" data-en="WHY THE MODEL CAN BE TRUSTED">为什么模型可信</span>
    <p data-en="Each random input uses its own seeded stream, so changing the wind never reshuffles droplets — differences come only from the condition changed. Landing weights sum to exactly 1, so sprayed and deposited mass agree to 0.999973.">每类随机量各用一条固定种子的随机流，改变风速不会把液滴“重新洗牌”，结果差异只来自所改的条件；落点分配权重之和为 1，所以喷出与落下的药量能对到 0.999973。</p>
   </div>
@@ -553,7 +561,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  </div>
  <figure class="fig wide reveal">
   <img src="assets/fieldcheck.svg" alt="水敏纸实测、原模型与修正模型的漂移距离对比" loading="lazy" width="501" height="219">
-  <figcaption data-en="<b>Field check — KZ80-06 single nozzle, water-sensitive paper, 1.5–2.2 m high.</b> Assuming droplets fall freely from rest overestimated drift 9–22×: a pressurised nozzle’s jet carries droplets down fast. Switching to a “jet + wind” falling model brings the error to about 20–50%. With only 5 data points so far, repeat tests will narrow the range."><b>实地校验：KZ80-06 单喷头 · 水敏纸 · 高度 1.5–2.2 m。</b>原模型假设液滴从静止自由沉降，把漂移距离高估了 9–22 倍——实际上加压喷头的射流会带着雾滴快速落地。换成“射流 + 风”的下落模型后，误差缩小到约 20–50%。目前只有 5 个实测点，后续重复实验会让范围进一步收窄。</figcaption>
+  <figcaption data-en="<b>Field check — KZ80-06 single nozzle, <dfn class='t' data-t='wsp' tabindex='0'>water-sensitive paper</dfn>, 1.5–2.2 m high.</b> Assuming droplets fall freely from rest overestimated drift 9–22×: a pressurised nozzle’s <dfn class='t' data-t='jet' tabindex='0'>jet</dfn> carries droplets down fast. Switching to a “jet + wind” falling model brings the error to about 20–50%. With only 5 data points so far, repeat tests will narrow the range."><b>实地校验：KZ80-06 单喷头 · <dfn class="t" data-t="wsp" tabindex="0">水敏纸</dfn> · 高度 1.5–2.2 m。</b>原模型假设液滴从静止自由沉降，把漂移距离高估了 9–22 倍——实际上加压喷头的<dfn class="t" data-t="jet" tabindex="0">射流</dfn>会带着雾滴快速落地。换成“射流 + 风”的下落模型后，误差缩小到约 20–50%。目前只有 5 个实测点，后续重复实验会让范围进一步收窄。</figcaption>
  </figure>
 </div></div></section>
 
@@ -562,7 +570,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  <header class="sec-head reveal">
   <div class="kicker" data-en="Drift simulator">飘移模拟</div>
   <h2 data-en="Change the wind, <em>watch where spray goes.</em>">拖动风速，<em>看药液飘向哪里</em></h2>
-  <p class="lead" data-en="Pick a droplet size and flight conditions. Fall time = height ÷ terminal velocity; drift ≈ wind speed × fall time.">选择液滴粒径与作业条件：下落用时 = 高度 ÷ 终端速度，横向漂移 ≈ 风速 × 下落用时。</p>
+  <p class="lead" data-en="Pick a droplet size and flight conditions. Fall time = height ÷ <dfn class='t' data-t='vt' tabindex='0'>terminal velocity</dfn>; drift ≈ wind speed × fall time.">选择液滴粒径与作业条件：下落用时 = 高度 ÷ <dfn class="t" data-t="vt" tabindex="0">终端速度</dfn>，横向漂移 ≈ 风速 × 下落用时。</p>
  </header>
  <div class="cols">
  <div class="reveal">
@@ -601,8 +609,8 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
   <div class="specs">
    <div><span data-en="Fall time">下落用时</span><b id="oT"></b></div>
    <div><span data-en="Lateral drift">横向漂移</span><b id="oD"></b></div>
-   <div><span data-en="Off-field mass">出田质量</span><b id="oM"></b></div>
-   <div><span data-en="DB37/T 3940">行业建议</span><b id="oS"></b></div>
+   <div><span data-en="<dfn class='t' data-t='offmass' tabindex='0'>Off-field mass</dfn>"><dfn class="t" data-t="offmass" tabindex="0">出田质量</dfn></span><b id="oM"></b></div>
+   <div><span data-en="<dfn class='t' data-t='db' tabindex='0'>DB37/T 3940</dfn>"><dfn class="t" data-t="db" tabindex="0">行业建议</dfn></span><b id="oS"></b></div>
   </div>
   <p class="caveat" id="oNote"></p>
  </div>
@@ -633,7 +641,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
    <thead><tr><th data-k="w" data-en="Wind">风速</th><th data-k="in" data-en="In-field">田内落点</th><th data-k="off" data-en="Off-field">出田质量</th><th data-k="far" data-en="Farthest">最远落点</th><th data-k="peak" data-en="Peak g/m²">峰值 g/m²</th><th data-k="db" data-en="DB37/T 3940">行业标准</th></tr></thead>
    <tbody></tbody>
   </table></div>
-  <p class="caveat" data-en="In-field share here counts landing-point mass (89.88% at 2.0 m/s), a different basis from the 88.98% deposition-grid figure. Farthest landing is a 20 µm, no-evaporation upper bound.">此处田内落点按液滴落点质量统计（2.0 m/s 为 89.88%），与按沉积网格计算的 88.98% 口径不同；最远落点为 20 µm、无蒸发假设上限。</p>
+  <p class="caveat" data-en="In-field share here counts landing-point mass (89.88% at 2.0 m/s), a different <dfn class='t' data-t='basis' tabindex='0'>basis</dfn> from the 88.98% deposition-grid figure. Farthest landing is a 20 µm, no-evaporation upper bound.">此处田内落点按液滴落点质量统计（2.0 m/s 为 89.88%），与按沉积网格计算的 88.98% <dfn class="t" data-t="basis" tabindex="0">口径</dfn>不同；最远落点为 20 µm、无蒸发假设上限。</p>
  </div>
 </div></div></section>
 
@@ -642,16 +650,16 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  <header class="sec-head reveal">
   <div class="kicker" data-en="Results">结果</div>
   <h2 data-en="The baseline passes — <em>with room to improve.</em>">基线达标，<em>仍有优化空间</em></h2>
-  <p class="lead" data-en="2.0 m/s crosswind, 2.5 m height, 3.0 m/s flight speed, 8 m swath. Targets: in-field deposition ≥ 85%, low-deposition blocks &lt; 25%.">2.0 m/s 横风、2.5 m 高度、3.0 m/s 航速、8 m 喷幅。判据：田内沉积 ≥ 85%，低沉积方块 &lt; 25%。</p>
+  <p class="lead" data-en="2.0 m/s crosswind, 2.5 m height, 3.0 m/s flight speed, 8 m <dfn class='t' data-t='swath' tabindex='0'>swath</dfn>. Targets: in-field deposition ≥ 85%, <dfn class='t' data-t='lowblk' tabindex='0'>low-deposition blocks</dfn> &lt; 25%.">2.0 m/s 横风、2.5 m 高度、3.0 m/s 航速、8 m <dfn class="t" data-t="swath" tabindex="0">喷幅</dfn>。判据：田内沉积 ≥ 85%，<dfn class="t" data-t="lowblk" tabindex="0">低沉积方块</dfn> &lt; 25%。</p>
  </header>
  <div class="cols">
  <div class="reveal">
   <div class="callout" data-en="<b>The tipping point:</b> at 3.0 m/s, in-field deposition falls to 84.40% — exactly the industry’s “fly with caution” line. That is the window AeroGuard aims to widen."><b>临界点：</b>风速升至 3.0 m/s 时，田内落点降至 84.40%，恰好是行业“慎飞”边界——这正是 AeroGuard 要拓宽的作业窗口。</div>
    <div class="specs two">
-    <div><span data-en="Peak deposition">峰值沉积</span><b>0.3207<small>g/m²</small></b></div>
+    <div><span data-en="<dfn class='t' data-t='peak' tabindex='0'>Peak deposition</dfn>"><dfn class="t" data-t="peak" tabindex="0">峰值沉积</dfn></span><b>0.3207<small>g/m²</small></b></div>
     <div><span data-en="In-field total">田内沉积总量</span><b>73.44<small>g</small></b></div>
-    <div><span data-en="Spray band width">药带宽度</span><b>51.3<small>m</small></b></div>
-    <div><span data-en="Uniformity P95/P50">均匀度 P95/P50</span><b>4.36</b></div>
+    <div><span data-en="<dfn class='t' data-t='band' tabindex='0'>Spray band width</dfn>"><dfn class="t" data-t="band" tabindex="0">药带宽度</dfn></span><b>51.3<small>m</small></b></div>
+    <div><span data-en="<dfn class='t' data-t='p95' tabindex='0'>Uniformity P95/P50</dfn>"><dfn class="t" data-t="p95" tabindex="0">均匀度 P95/P50</dfn></span><b>4.36</b></div>
    </div>
   <div class="plain"><span class="plain-h" data-en="WHAT THE THREE SCORES MEAN">三个分数分别说明什么</span>
    <p data-en="<b>Did the spray stay?</b> 88.98% landed in the field, above the 85% line.<br><b>Were spots missed?</b> 33 of 260 blocks (3 × 3 m) got too little, under the 25% limit.<br><b>Was it even?</b> CV 45.9% is high: big drops land right under each pass — the next thing to improve."><b>药留住了吗？</b>88.98% 落在田里，高于 85% 及格线。<br><b>有没有漏喷？</b>260 个 3×3 m 方块中 33 块药偏少，低于 25% 上限。<br><b>撒得匀不匀？</b>CV 45.9% 偏高：大液滴集中落在航线正下方，这是下一步要改进的。</p>
@@ -659,12 +667,12 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  </div>
  <div class="meters reveal d1">
   <div class="meter"><div><div class="num count-up">88.98<small>%</small></div></div><div><h3><span data-en="In-field deposition">田内沉积占比</span><span class="badge" data-en="Pass">达标</span></h3><p data-en="Computed on a 0.3 m deposition grid.">按 0.3 m 网格沉积量计算。</p><div class="gauge" style="--v:88.98%"><i></i><s style="--t:85%" data-l="85%"></s></div></div></div>
-  <div class="meter"><div><div class="num count-up">12.69<small>%</small></div></div><div><h3><span data-en="Low-deposition blocks">漏喷块率</span><span class="badge" data-en="Pass">达标</span></h3><p data-en="33 of 260 blocks at the 3 m working scale.">3 m 作业方块中 33 / 260 块落药偏少。</p><div class="gauge" style="--v:12.69%"><i></i><s style="--t:25%" data-l="25%"></s></div></div></div>
-  <div class="meter warn"><div><div class="num count-up">45.9<small>%</small></div></div><div><h3><span data-en="Coefficient of variation">变异系数 CV</span><span class="badge w" data-en="Focus">优化重点</span></h3><p data-en="Deposition is still uneven — the next thing to improve.">沉积仍不够均匀，是下一步优化的重点。</p><div class="gauge" style="--v:45.9%"><i></i></div></div></div>
+  <div class="meter"><div><div class="num count-up">12.69<small>%</small></div></div><div><h3><span data-en="<dfn class='t' data-t='lowblk' tabindex='0'>Low-deposition blocks</dfn>"><dfn class="t" data-t="lowblk" tabindex="0">漏喷块率</dfn></span><span class="badge" data-en="Pass">达标</span></h3><p data-en="33 of 260 blocks at the 3 m working scale.">3 m 作业方块中 33 / 260 块落药偏少。</p><div class="gauge" style="--v:12.69%"><i></i><s style="--t:25%" data-l="25%"></s></div></div></div>
+  <div class="meter warn"><div><div class="num count-up">45.9<small>%</small></div></div><div><h3><span data-en="<dfn class='t' data-t='cv' tabindex='0'>Coefficient of variation</dfn>"><dfn class="t" data-t="cv" tabindex="0">变异系数 CV</dfn></span><span class="badge w" data-en="Focus">优化重点</span></h3><p data-en="Deposition is still uneven — the next thing to improve.">沉积仍不够均匀，是下一步优化的重点。</p><div class="gauge" style="--v:45.9%"><i></i></div></div></div>
  </div>
  <figure class="fig wide reveal">
   <img src="assets/deposition.svg" alt="基线工况沉积场热图" loading="lazy" width="519" height="350">
-  <figcaption data-en="Baseline deposition field (2.0 m/s crosswind, 10 passes). Green frame: field · dashed: spray segments · dotted: 3 m headland flown with nozzles off · red outline: off-field drift. Bright streaks under each pass and dips between them are the unevenness behind CV 45.9%.">基线沉积场（2.0 m/s 横风，10 趟）。绿框=田界 · 虚线=喷洒段 · 点线=田头 3 m 只飞不喷 · 红描边=田外漂移区。每趟航线下方偏亮、两趟之间偏暗，正是 CV 45.9% 的来源。</figcaption>
+  <figcaption data-en="Baseline deposition field (2.0 m/s crosswind, 10 passes). Green frame: field · dashed: spray segments · dotted: 3 m <dfn class='t' data-t='headland' tabindex='0'>headland</dfn> flown with nozzles off · red outline: off-field drift. Bright streaks under each pass and dips between them are the unevenness behind CV 45.9%.">基线沉积场（2.0 m/s 横风，10 趟）。绿框=田界 · 虚线=喷洒段 · 点线=<dfn class="t" data-t="headland" tabindex="0">田头</dfn> 3 m 只飞不喷 · 红描边=田外漂移区。每趟航线下方偏亮、两趟之间偏暗，正是 CV 45.9% 的来源。</figcaption>
  </figure>
 </div></div></section>
 
@@ -673,7 +681,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  <header class="sec-head reveal">
   <div class="kicker" data-en="Impact">影响</div>
   <h2 data-en="Less drift, <em>more protected.</em>">少一分飘移，<em>多一分守护</em></h2>
-  <p class="lead" data-en="Precision spraying links directly to five UN Sustainable Development Goals — each benefit maps to something measurable in the field.">精准植保直接关联五项联合国可持续发展目标，每项收益都对应可在田间测量的指标。</p>
+  <p class="lead" data-en="Precision spraying links directly to five <dfn class='t' data-t='sdg' tabindex='0'>UN Sustainable Development Goals</dfn> — each benefit maps to something measurable in the field.">精准植保直接关联五项<dfn class="t" data-t="sdg" tabindex="0">联合国可持续发展目标</dfn>，每项收益都对应可在田间测量的指标。</p>
  </header>
  <div class="cols">
  <div class="reveal">
@@ -691,12 +699,12 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  <div class="reveal d1">
   <div class="paths">
    <div class="path"><b data-en="SDG 2 · Food">SDG 2 · 粮食生产</b><p data-en="Measure: deposition on crops, missed areas, product per hectare.">观测：作物落药量、漏喷区域与每亩用药量。</p></div>
-   <div class="path"><b data-en="SDG 3 / 6 · Health &amp; water">SDG 3 / 6 · 健康与水</b><p data-en="Measure: off-field deposition, nearby water bodies, operator exposure.">观测：田外落药、邻近水体与作业人员暴露。</p></div>
+   <div class="path"><b data-en="SDG 3 / 6 · Health &amp; water">SDG 3 / 6 · 健康与水</b><p data-en="Measure: off-field deposition, nearby water bodies, <dfn class='t' data-t='expo' tabindex='0'>operator exposure</dfn>.">观测：田外落药、邻近水体与<dfn class="t" data-t="expo" tabindex="0">作业人员暴露</dfn>。</p></div>
    <div class="path"><b data-en="SDG 12 / 15 · Production &amp; land">SDG 12 / 15 · 生产与生态</b><p data-en="Measure: product efficiency, drift volume, surrounding soil.">观测：药液利用率、飘移量与周边土壤。</p></div>
   </div>
   <div class="pilot"><span class="tag" data-en="Next step · 60 × 40 m field pilot">下一步 · 60 × 40 m 田间试点</span>
    <div class="pilot-steps">
-    <div><b data-en="Pick the field">确定田块</b><span data-en="Location, crop, growth stage.">地点、作物与生育期。</span></div>
+    <div><b data-en="Pick the field">确定田块</b><span data-en="Location, crop, <dfn class='t' data-t='stage' tabindex='0'>growth stage</dfn>.">地点、作物与<dfn class="t" data-t="stage" tabindex="0">生育期</dfn>。</span></div>
     <div><b data-en="Log conditions">记录条件</b><span data-en="Wind, nozzle, height, speed.">风况、喷头、高度与航速。</span></div>
     <div><b data-en="Measure deposition">测量沉积</b><span data-en="Grid sampling in and out of field.">网格布点，测田内外沉积。</span></div>
     <div><b data-en="Recalibrate">回校模型</b><span data-en="Compare, adjust, repeat.">比较误差，调参再验证。</span></div>
@@ -711,7 +719,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  <header class="sec-head reveal">
   <div class="kicker" data-en="Team">团队</div>
   <h2 data-en="The people <em>behind AeroGuard.</em>">AeroGuard <em>背后的团队</em></h2>
-  <p class="lead" data-en="We formed our team after seeing the chemical waste, off-target exposure and environmental risk caused by wind-driven drift in drone spraying. Determined to replace guess-based operations with a physics-driven system, we split our roles to bridge algorithms, hardware and business.">我们因同一个问题走到一起：植保无人机喷洒时，风致飘移造成严重的药液浪费、非靶区暴露和环境风险。为了用基于物理的系统取代“凭经验估计”的作业方式，我们分工协作，打通算法、硬件与商业三端。</p>
+  <p class="lead" data-en="We formed our team after seeing the chemical waste, <dfn class='t' data-t='offtarget' tabindex='0'>off-target exposure</dfn> and environmental risk caused by wind-driven drift in drone spraying. Determined to replace guess-based operations with a physics-driven system, we split our roles to bridge algorithms, hardware and business.">我们因同一个问题走到一起：植保无人机喷洒时，风致飘移造成严重的药液浪费、<dfn class="t" data-t="offtarget" tabindex="0">非靶区暴露</dfn>和环境风险。为了用基于物理的系统取代“凭经验估计”的作业方式，我们分工协作，打通算法、硬件与商业三端。</p>
  </header>
  <div class="cols">
  <div class="reveal">
@@ -725,19 +733,19 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  </div>
  <div class="reveal d1">
   <div class="team">
-    <div class="member"><div class="avatar" aria-hidden="true">SG</div><b>Shenghan Guo</b><span data-en="Market validation &amp; pitch">市场验证与路演</span><p data-en="Leads market validation and structures our Lean Canvas and pitch strategy.">负责市场验证，搭建精益画布（Lean Canvas）并制定路演策略。</p></div>
+    <div class="member"><div class="avatar" aria-hidden="true">SG</div><b>Shenghan Guo</b><span data-en="Market validation &amp; pitch">市场验证与路演</span><p data-en="Leads market validation and structures our <dfn class='t' data-t='lean' tabindex='0'>Lean Canvas</dfn> and <dfn class='t' data-t='pitch' tabindex='0'>pitch</dfn> strategy.">负责市场验证，搭建<dfn class="t" data-t="lean" tabindex="0">精益画布（Lean Canvas）</dfn>并制定<dfn class="t" data-t="pitch" tabindex="0">路演</dfn>策略。</p></div>
     <div class="member"><div class="avatar" aria-hidden="true">YY</div><b>Yuhang Yao</b><span data-en="Web platform">交互网站平台</span><p data-en="Architects the interactive web platform, turning complex spray datasets into an accessible pilot console.">搭建交互式网站平台，把复杂的喷洒数据变成飞手易用的操作台。</p></div>
-    <div class="member"><div class="avatar" aria-hidden="true">XW</div><b>Xiyan Wang</b><span data-en="Hardware integration">硬件集成</span><p data-en="Directs hardware integration: sensor assembly and aerodynamic prototype debugging.">主导硬件集成，负责传感器装配与气动原型调试。</p></div>
-    <div class="member"><div class="avatar" aria-hidden="true">ZF</div><b>Zichen Feng</b><span data-en="Simulation software">仿真软件</span><p data-en="Develops the core simulation software, computing droplet kinematics and grid-based deposition metrics.">开发核心仿真软件，计算液滴运动学与基于网格的沉积指标。</p></div>
+    <div class="member"><div class="avatar" aria-hidden="true">XW</div><b>Xiyan Wang</b><span data-en="Hardware integration">硬件集成</span><p data-en="Directs hardware integration: sensor assembly and <dfn class='t' data-t='aero' tabindex='0'>aerodynamic prototype</dfn> debugging.">主导硬件集成，负责传感器装配与<dfn class="t" data-t="aero" tabindex="0">气动原型</dfn>调试。</p></div>
+    <div class="member"><div class="avatar" aria-hidden="true">ZF</div><b>Zichen Feng</b><span data-en="Simulation software">仿真软件</span><p data-en="Develops the core simulation software, computing <dfn class='t' data-t='kin' tabindex='0'>droplet kinematics</dfn> and grid-based deposition metrics.">开发核心仿真软件，计算<dfn class="t" data-t="kin" tabindex="0">液滴运动学</dfn>与基于网格的沉积指标。</p></div>
   </div>
   <div class="streams">
    <div><b data-en="01 · Droplet physics">01 · 液滴物理</b><span data-en="Size sampling, terminal velocity">粒径抽样与终端速度</span></div>
    <div><b data-en="02 · Route planning">02 · 航线规划</b><span data-en="Swath, overlap, boundary">喷幅、重叠与边界保护</span></div>
    <div><b data-en="03 · Deposition">03 · 沉积分析</b><span data-en="Drift mass, uniformity">漂移质量与覆盖均匀性</span></div>
-   <div><b data-en="04 · Verification">04 · 模型校核</b><span data-en="Readouts, dual-path checks">显示读数与双路径核验</span></div>
+   <div><b data-en="04 · Verification">04 · 模型校核</b><span data-en="Readouts, <dfn class='t' data-t='dual' tabindex='0'>dual-path checks</dfn>">显示读数与<dfn class="t" data-t="dual" tabindex="0">双路径核验</dfn></span></div>
   </div>
   <div class="plain"><span class="plain-h" data-en="HOW WE SPLIT THE WORK">我们怎么分工</span>
-   <p data-en="A relay: how one droplet falls, how the drone flies, how much lands across the field — then an independent notebook rebuilds the whole pipeline and matches all 26 readings.">四条工作线像一场接力：先弄清液滴怎么落，再规划怎么飞，然后统计整片田的落药，最后由独立笔记本重写全流程，26 项读数逐位一致。</p>
+   <p data-en="A relay: how one droplet falls, how the drone flies, how much lands across the field — then an <dfn class='t' data-t='nb' tabindex='0'>independent notebook</dfn> rebuilds the whole pipeline and matches all 26 readings.">四条工作线像一场接力：先弄清液滴怎么落，再规划怎么飞，然后统计整片田的落药，最后由<dfn class="t" data-t="nb" tabindex="0">独立笔记本</dfn>重写全流程，26 项读数逐位一致。</p>
   </div>
  </div>
 </div></div></section>
@@ -972,6 +980,26 @@ if(chart&&dt){
  addEventListener('chartin',draw);
  draw();rows();
 }
+})();
+// 名词解释浮层
+(()=>{
+ const TIPS={"offmass": ["出田质量", "喷出的药液按重量算，有多少比例被风吹出田块边界、没落到作物上。越小越好。", "Off-field mass", "The share of sprayed liquid, by weight, that the wind carries past the field edge instead of onto the crop. Lower is better."], "inmass": ["田内沉积占比", "喷出的药液按重量算，有多少比例最终落在田块范围内。越大越好，项目及格线是 85%。", "In-field deposition", "The share of sprayed liquid, by weight, that ends up inside the field. Higher is better; our pass line is 85%."], "steady": ["定常横风", "从侧面吹来、风速和风向都保持不变的风。真实的风会忽大忽小，这是便于比较的理想条件。", "Steady crosswind", "Wind from the side whose speed and direction stay constant — an idealised condition that makes cases comparable."], "rep": ["代表液滴", "真实喷雾有上亿颗液滴，算不过来；仿真抽取 12,000 颗“代表”，每颗代表一批同样大小的液滴。", "Representative droplets", "A real spray has hundreds of millions of drops; we simulate 12,000 that each stand for a batch of similar ones."], "cross": ["独立复核", "另写一套程序从头再算一遍，26 个关键数字和原模型逐一比对，全部一致。", "Cross-checked", "A separately written program recomputed everything; all 26 key numbers matched the main model."], "window": ["风速窗口", "风速在多大范围内还能正常作业。窗口越宽，能飞的天数越多。", "Wind window", "The range of wind speeds in which spraying is still acceptable. A wider window means more flying days."], "um": ["µm（微米）", "1 微米 = 千分之一毫米。一根头发丝约 70 µm 粗。", "µm (micrometre)", "One thousandth of a millimetre. A human hair is about 70 µm thick."], "bymass": ["按数量 vs 按质量", "细雾液滴数量多但很轻。按“颗数”算有 41.81% 飘出田，按“药量（重量）”算只有 10.12%。", "By count vs by mass", "Fine mist is numerous but light: 41.81% of droplets leave the field, but only 10.12% of the chemical by weight."], "db": ["DB37/T 3940-2020", "山东省发布的植保无人机作业地方标准（DB＝地方标准，37＝山东，T＝推荐性），规定了不同风速下能否作业。", "DB37/T 3940-2020", "A Shandong provincial standard for crop-spraying drones (DB = local standard, 37 = Shandong, T = recommended), including wind limits."], "target": ["85% 达标线", "本项目设定的及格线：至少 85% 的药液要留在田里。", "85% line", "Our project’s pass mark: at least 85% of the spray must stay inside the field."], "downwash": ["下压气流", "无人机旋翼向下吹的强气流，会带着药液往下走。", "Downwash airflow", "The strong downward air pushed by the drone’s rotors, which carries spray toward the ground."], "boom": ["喷杆", "装着一排喷头的横杆。飞行时它会轻微晃动，让落点产生偏差。", "Spray boom", "The bar that holds the nozzles. It sways slightly in flight, which shifts where drops land."], "swath": ["喷幅", "飞一趟时地面上能被喷到的宽度。", "Swath", "The width of ground covered by the spray in one pass."], "seed": ["随机种子", "随机抽样的“起始编号”。编号固定，每次抽到的液滴就完全一样，别人重跑也能得到相同结果。", "Random seed", "The starting number for random sampling. Fixing it means every run draws exactly the same droplets."], "dsd": ["滴谱", "喷头喷出的液滴大小分布：多大的液滴各有多少。", "Droplet spectrum", "How droplet sizes are spread out — how many drops of each size the nozzle produces."], "grid": ["沉积网格", "把田地切成 0.3 m × 0.3 m 的小格，统计每格落了多少药。", "Deposition grid", "The field is cut into 0.3 m × 0.3 m cells and the spray landing in each cell is totalled."], "d3": ["质量 ∝ D³", "“∝”表示成正比。液滴直径变成 2 倍，体积和药量变成 8 倍，所以少数大液滴装了大部分药。", "Mass ∝ D³", "“∝” means proportional to. Double a drop’s diameter and it carries 8× the chemical, so a few big drops hold most of it."], "ess": ["有效样本", "按药量加权后，真正“说了算”的液滴数。大液滴分量重，所以 12,000 颗里相当于只有 1964 颗在起作用。", "Effective sample size", "How many droplets effectively count once weighted by mass. Heavy drops dominate, so 12,000 act like only 1,964."], "impl": ["实现一致性", "检查程序有没有按公式正确计算，不等于证明模型和真实田间完全一样。", "Implementation check", "Confirms the code computes the formulas correctly — not that the model matches the real field."], "wsp": ["水敏纸", "一种黄色试纸，雾滴落上去会留下蓝色斑点，用来看药液落在哪里、落了多少。", "Water-sensitive paper", "Yellow test cards that turn blue where droplets hit, showing where and how much spray landed."], "jet": ["射流", "加压喷头喷出时液体自带的高速向下冲力，让雾滴比“自由飘落”快得多。", "Jet", "The fast downward rush of liquid leaving a pressurised nozzle, which makes drops fall far faster than drifting from rest."], "vt": ["终端速度", "液滴下落时空气阻力与重力抵消后的稳定速度。液滴越小，终端速度越慢。", "Terminal velocity", "The steady speed a falling drop reaches when air drag balances its weight. Smaller drops fall slower."], "basis": ["口径", "统计方法或计算依据。同一件事用不同口径算，数字会略有不同。", "Basis", "The method used to count something; different bases give slightly different numbers."], "lowblk": ["漏喷块 / 低沉积方块", "把田分成 3 m × 3 m 的方块，落药量明显偏少的方块算作“漏喷”。要求少于 25%。", "Low-deposition blocks", "The field is split into 3 m × 3 m blocks; blocks receiving clearly too little spray count as missed. Target: under 25%."], "peak": ["峰值沉积", "所有小格里落药最多的那一格的量，单位是每平方米多少克。", "Peak deposition", "The amount in the single most-sprayed cell, in grams per square metre."], "band": ["药带宽度", "横着看整片田，落药量不低于最高值一半的那段宽度（半高宽），反映药液主要铺开的范围。", "Spray band width", "Across the field, the width where deposition is at least half its peak (full width at half maximum)."], "p95": ["P95/P50", "把所有格子的落药量从少到多排队，第 95% 位置的量除以中间位置的量。越接近 1，喷得越均匀。", "P95/P50", "Sort all cells by deposition; divide the 95th-percentile value by the median. Closer to 1 means more even."], "cv": ["变异系数 CV", "标准差 ÷ 平均值，衡量各处落药“忽多忽少”的程度。越小越均匀。", "Coefficient of variation", "Standard deviation ÷ mean — how much deposition varies from place to place. Smaller is more even."], "headland": ["田头", "田块两端用来掉头的区域，这里只飞不喷，避免重复喷洒。", "Headland", "The strip at each end of the field where the drone turns; it flies there with nozzles off to avoid double-spraying."], "sdg": ["SDG", "联合国 2015 年提出的 17 项可持续发展目标（Sustainable Development Goals），如零饥饿、清洁饮水等。", "SDGs", "The 17 goals adopted by the UN in 2015, such as zero hunger and clean water."], "stage": ["生育期", "作物当前所处的生长阶段，如苗期、拔节期、开花期，不同阶段需药量不同。", "Growth stage", "The crop’s current phase of development (seedling, flowering…), which affects how much spray it needs."], "expo": ["暴露", "人接触或吸入药液的程度。", "Exposure", "How much spray a person touches or breathes in."], "offtarget": ["非靶区", "本不该喷到的地方，如邻田作物、水体和行人。", "Off-target", "Places that should not be sprayed — neighbouring crops, water, people."], "lean": ["精益画布", "一页纸的商业计划模板，列出用户痛点、方案、收入、成本等关键问题。", "Lean Canvas", "A one-page business plan template covering the problem, solution, customers, revenue and costs."], "pitch": ["路演", "向评委或投资人现场展示和讲解项目。", "Pitch", "Presenting the project to judges or investors."], "aero": ["气动原型", "用来测试气流导向效果的早期样机。", "Aerodynamic prototype", "An early test unit for trying out the airflow-steering design."], "kin": ["运动学", "研究物体怎么运动：速度、轨迹、落点。", "Kinematics", "The study of how things move — speed, path and landing point."], "dual": ["双路径核验", "用两套独立编写的程序算同一组结果，再互相比对。", "Dual-path check", "Two independently written programs compute the same results and are compared."], "nb": ["笔记本（Notebook）", "Jupyter Notebook：一种能边写代码边看结果和图表的文档，方便别人逐步检查。", "Notebook", "A Jupyter Notebook — a document mixing code, results and charts so others can check each step."]};
+ const tip=document.createElement('div');tip.className='tip';tip.setAttribute('role','tooltip');tip.id='tip';document.body.appendChild(tip);
+ let cur=null;
+ const hide=()=>{if(cur){cur.classList.remove('on');cur.removeAttribute('aria-describedby')}cur=null;tip.classList.remove('on')};
+ const show=el=>{const d=TIPS[el.dataset.t];if(!d)return;if(cur&&cur!==el)cur.classList.remove('on');cur=el;el.classList.add('on');el.setAttribute('aria-describedby','tip');
+  const en=document.documentElement.lang==='en';tip.innerHTML='<b>'+(en?d[2]:d[0])+'</b>'+(en?d[3]:d[1]);
+  const r=el.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight,vw=document.documentElement.clientWidth;
+  let x=Math.min(Math.max(12,r.left+r.width/2-w/2),vw-w-12),y=r.top-h-10;if(y<70)y=r.bottom+10;
+  tip.style.left=x+'px';tip.style.top=y+'px';tip.classList.add('on')};
+ const T=e=>e.target.closest&&e.target.closest('dfn.t');
+ document.addEventListener('pointerover',e=>{if(e.pointerType==='touch')return;const el=T(e);if(el)show(el)});
+ document.addEventListener('pointerout',e=>{if(e.pointerType==='touch')return;const el=T(e);if(el&&!el.contains(e.relatedTarget))hide()});
+ document.addEventListener('focusin',e=>{const el=T(e);if(el)show(el)});
+ document.addEventListener('focusout',e=>{if(T(e))hide()});
+ document.addEventListener('click',e=>{const el=T(e);if(el){e.preventDefault();if(cur===el&&tip.classList.contains('on'))hide();else show(el)}else hide()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
+ addEventListener('scroll',hide,{passive:true});addEventListener('resize',hide);addEventListener('langchange',hide);addEventListener('hashchange',hide);
 })();
 </script>
 </body>
