@@ -228,6 +228,10 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
 .gloss{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 22px;margin:4px 0 0}
 .gloss dt{font:500 14px/1.4 var(--serif);color:var(--ink)}
 .gloss dd{margin:2px 0 0;font-size:12.5px;line-height:1.65}
+.fig{margin:26px 0 0;padding:16px 16px 14px;border-radius:6px;background:var(--paper2)}
+.alt .fig{background:var(--paper)}
+.fig img{width:100%;height:auto}
+.fig figcaption{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:12px;line-height:1.65;color:var(--muted)}
 
 /* Simulator & data */
 .cols.even{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
@@ -398,6 +402,10 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
    <p data-en="Spraying crops by drone is like watering flowers with a mister on a windy day — the finer the mist, the more easily the wind carries it away. AeroGuard does two things: it first works out where the wind will push the spray, then uses airflow to press it back down onto the crop.">无人机打药，就像在有风的天气里用喷壶浇花——水雾越细，越容易被风带跑。AeroGuard 做两件事：先算出风会把药吹到哪里，再用气流把药“按”回作物上。</p>
    <p data-en="The three numbers above mean: <b>nearly 90%</b> of the spray stays in the field; the result comes from <b>12,000 simulated droplets</b>; and <b>all 26 key results</b> were re-calculated by a second, independent method.">上面三个数字的意思是：<b>近九成</b>药液留在了田里；结果来自 <b>1.2 万颗</b>模拟液滴的计算；<b>26 项</b>关键结果都用另一种方法重新算过一遍，全部对得上。</p>
   </div>
+  <div class="plain"><span class="plain-h" data-en="HOW WE GOT THESE NUMBERS">这些数字是怎么来的</span>
+   <p data-en="We do not guess drift — we follow each droplet. Every one of the 12,000 droplets gets a size, a release moment on the flight path and a gust it meets. Physics then gives its falling speed, its time in the air and how far the wind pushes it, so its landing point is simply <b>release point + wind drift</b>.">我们不是凭感觉估计飘移，而是逐颗“跟踪”液滴：1.2 万颗液滴各自被分配一个粒径、一个在航线上喷出的时刻和一阵遇到的风。再由物理公式算出它下落多快、在空中停留多久、被风推出多远，落点就是<b>喷出位置 + 风致漂移</b>。</p>
+   <p data-en="Because a droplet’s mass grows with the cube of its diameter, one 400 µm droplet carries as much product as 8,000 droplets of 20 µm. That is why every result on this site is reported by <b>mass</b> — the amount of chemical — and not just by counting droplets.">液滴的质量与直径的三次方成正比，一颗 400 µm 的液滴所含药量相当于 8000 颗 20 µm 的细雾。所以本站所有结论都优先按<b>药液质量</b>计算，而不是简单数液滴个数——真正影响药效和污染的，是药量去了哪里。</p>
+  </div>
  </div>
  <figure class="hero-img reveal d1"><img src="assets/after.jpg" alt="植保无人机在田间喷洒作业" fetchpriority="high">
   <div class="chip c1"><i></i><div><span data-en="Steady crosswind">定常横风</span><b>2.0 m/s</b></div></div>
@@ -428,6 +436,10 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
   <div class="plain"><span class="plain-h" data-en="WHY DOES FINE SPRAY DRIFT?">为什么细雾飘得远？</span>
    <p data-en="Smaller droplets are lighter and fall more slowly. A 400 µm droplet (1 µm = 1/1000 mm; a hair is about 70 µm) reaches the ground in 1.6 s, while a 20 µm mist droplet floats for three and a half minutes — long enough for even a gentle breeze to carry it hundreds of metres.">液滴越小越轻，下落越慢。一颗 400 µm 的液滴（1 µm 是千分之一毫米，一根头发约 70 µm）1.6 秒就落地；而 20 µm 的细雾要在空中飘三分半钟——这么长时间里，哪怕一阵微风也能把它带出几百米。</p>
    <p data-en="That is why drifting droplets are 42% by <b>count</b> but only 10% by <b>mass</b>: what escapes is mostly the tiny, light part of the spray. The bar chart shows the trend — the stronger the wind, the more spray leaves the field.">所以飘出田的液滴按<b>个数</b>占四成，按<b>药量</b>却只占一成：飘走的大多是又小又轻的那部分。右边的条形图说明了趋势——风越大，出田的药越多。</p>
+  </div>
+  <div class="plain"><span class="plain-h" data-en="THE PHYSICS BEHIND IT">背后的物理</span>
+   <p data-en="A falling droplet feels two forces: gravity pulling it down and air drag holding it back. It speeds up until the two balance — that steady speed is its <b>terminal velocity</b>. For tiny droplets drag dominates, so they settle at only about 1 cm/s; a 600 µm drop reaches about 2.3 m/s.">液滴下落时受两个力：重力往下拉，空气阻力往上托。它会一直加速，直到两者相等——这时的稳定速度叫<b>终端速度</b>。细小液滴阻力占上风，20 µm 的液滴每秒只落约 1 厘米；600 µm 的大液滴则能达到每秒约 2.3 米。</p>
+   <p data-en="We compute this with a standard drag law for spheres, in which the drag coefficient depends on the Reynolds number (how “thick” the air feels to the droplet), and solve for the balance point by repeated halving. Fall time is then simply height ÷ terminal velocity, and sideways drift ≈ wind speed × fall time. Double the time in the air and you double the drift.">我们用球体的经典阻力公式计算：阻力系数随雷诺数变化（雷诺数可理解为空气对液滴来说有多“黏”），再用反复对半取值的二分法找到受力平衡的速度。之后下落时间 = 高度 ÷ 终端速度，横向漂移 ≈ 风速 × 下落时间——在空中多待一倍时间，就多飘一倍距离。</p>
   </div>
  </div>
  <div class="reveal d1">
@@ -468,6 +480,10 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
    <p data-en="Think of it as a “wind-aware hair dryer” on the nozzle: if wind comes from the left, the system works out how far right the spray will shift, then angles the airflow left to compensate. Drag the line in the photo to compare both cases.">可以把它想成给喷头装了一个“会看风的吹风机”：风从左边来，系统就算出药会往右偏多少，再把气流往左调一点来抵消。拖动右图中线，可以对比两种情况。</p>
    <p data-en="The four numbers on the right describe the simulated job: the drone flies back and forth like mowing a lawn — 10 passes, 6 m apart, with each pass overlapping the last by a quarter so no strip is missed.">右下方 4 个数字是模拟中的作业方式：无人机像割草一样来回飞 10 趟，每趟相隔 6 米，相邻两趟重叠四分之一，避免中间漏喷。</p>
   </div>
+  <div class="plain"><span class="plain-h" data-en="HOW THE ROUTE IS PLANNED">航线是怎么算出来的</span>
+   <p data-en="The planner starts from the nozzle’s 8 m swath and a desired 20% overlap, giving a maximum step of 6.4 m. Covering the 60 m field width needs ceil(60 ÷ 6.4) = 10 passes; spreading them evenly gives exactly 6 m between passes, so neighbouring strips actually overlap by 2 m (25%) — a little more than requested, never less.">规划从喷头 8 米喷幅和期望的 20% 重叠率出发，算出每趟最多横移 6.4 米；覆盖 60 米田宽需要 60 ÷ 6.4 向上取整 = 10 趟。再把 10 趟平均分布，相邻间距正好 6 米，实际重叠 2 米（25%）——只会比要求多重叠一点，绝不会少，从源头避免漏喷带。</p>
+   <p data-en="The drone also flies 3 m past each end of the field to turn around, but the nozzles switch off there. So it flies 460 m in total yet sprays only 400 m — at 3 m/s that is 133.3 s of spraying, and no spray is released outside the field boundary.">无人机在田两头各多飞 3 米用来掉头，但这段会关闭喷头：总飞行 460 米，实际喷洒只有 400 米，按 3 m/s 航速即 133.3 秒。验证结果显示所有喷洒段都在田界之内，药液不会在田外被直接喷出。</p>
+  </div>
  </div>
  <div class="reveal d1">
   <div class="ba" id="ba">
@@ -487,6 +503,10 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
    <div><span data-en="Overlap">重叠</span><b>25<small>%</small></b></div>
    <div><span data-en="Task time">作业时长</span><b>133.3<small>s</small></b></div>
   </div>
+  <figure class="fig">
+   <img src="assets/swath.svg" alt="喷幅、航线间距与重叠示意图" loading="lazy" width="517" height="193">
+   <figcaption data-en="How the route is spaced: 8.0 m swath × (1 − 20%) = 6.4 m max step → ceil(60 ÷ 6.4) = 10 passes → 6.0 m apart, so neighbours actually overlap by 2.0 m (25%).">航线间距怎么来：8.0 m 喷幅 ×（1 − 20%）= 最大步进 6.4 m → 60 ÷ 6.4 向上取整 = 10 趟 → 间距 6.0 m，相邻两趟实际重叠 2.0 m（25%）。</figcaption>
+  </figure>
  </div>
 </div></div></section>
 
@@ -506,7 +526,15 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
    <div><span data-en="Deposition grid">沉积网格</span><b>400 × 267</b></div>
    <div><span data-en="Mass conservation">守恒校验</span><b>0.999973</b></div>
   </div>
+  <figure class="fig">
+   <img src="assets/dsd.svg" alt="数量加权与质量加权的滴谱对比" loading="lazy" width="417" height="222">
+   <figcaption data-en="Droplet spectrum by count vs by mass. Fine drops are the majority, but mass ∝ D³ puts most of the chemical in coarse drops — only 1,964 droplets (16%) effectively carry the dose.">滴谱：按数量 vs 按质量。细滴占多数，但质量 ∝ D³，药量主要在粗滴里——实际起作用的有效样本只有 1964 颗（16%）。</figcaption>
+  </figure>
   <p class="caveat" data-en="<b>Note:</b> these checks confirm the model is implemented consistently — not yet its real-world effect, which the field pilot will test."><b>说明：</b>校核验证的是模型实现一致性，不等同于田间效果验证，后者将由田间试点检验。</p>
+  <div class="plain"><span class="plain-h" data-en="WHY THE MODEL CAN BE TRUSTED">为什么模型可信</span>
+   <p data-en="Randomness is controlled, not avoided. Droplet size, release time, gusts and boom position each draw from their own seeded random stream, so changing the wind does not reshuffle droplet sizes — any difference between two runs is caused by the condition we changed, not by luck.">随机性是“被控制”的，而不是被回避的。粒径、喷出时刻、阵风和喷杆位置各用一条带固定种子的独立随机流，所以调整风速时液滴大小不会被重新洗牌——两次结果的差别只来自我们改变的条件，而不是运气。</p>
+   <p data-en="Each landing point is spread onto the grid with a small bell-shaped blur (σ = 0.45 m) to mimic splash and leaf contact. The blur is weighted to sum to exactly 1, which is why sprayed mass and deposited mass agree to 0.999973. Edge cases are handled too: a droplet landing exactly on the field line is not miscounted as “outside” by rounding error.">每个落点会用一个小的钟形“晕开”（σ = 0.45 米）分配到网格上，模拟液滴撞击和叶面铺展。晕开权重之和严格等于 1，所以喷出与落下的总量能对到 0.999973。连边界细节也处理了：恰好落在田埂线上的液滴，不会因计算机舍入误差被错算成“田外”。</p>
+  </div>
  </div>
  <div class="reveal d1">
   <div class="chain">
@@ -516,6 +544,10 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
    <div class="link"><b data-en="Landing points">落点</b><span data-en="→ deposition field">→ 沉积场</span></div>
    <div class="link"><b data-en="Coverage">覆盖</b><span data-en="0.3 m grid · 3 m blocks">0.3 m 网格 · 3 m 方块</span></div>
   </div>
+  <figure class="fig">
+   <img src="assets/chain.svg" alt="粒径、终端速度与下落时间曲线" loading="lazy" width="561" height="208">
+   <figcaption data-en="The first two links of the chain: a 20 µm droplet falls at only 0.012 m/s and needs 211 s to drop 2.5 m; a 400 µm droplet needs just 1.6 s.">因果链的前两环：20 µm 液滴终端速度仅 0.012 m/s，落 2.5 m 要 211 s；400 µm 只要 1.6 s。</figcaption>
+  </figure>
   <div class="cards">
    <div class="card"><span class="tag">Model</span><h3 data-en="Parametric droplet model">参数化液滴模型</h3><p data-en="Size, release time and gusts each use an independent random stream.">粒径、发射时刻与阵风各用一条独立随机流抽样。</p></div>
    <div class="card"><span class="tag">Route</span><h3 data-en="Routes &amp; deposition">航线与沉积场</h3><p data-en="10 back-and-forth passes, 6 m apart; landing points mapped onto the grid.">10 趟往复航线、间距 6 m，落点映射到沉积网格。</p></div>
@@ -570,6 +602,10 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
    </ol>
    <p data-en="<b>Takeaway:</b> this is why windy days call for coarser nozzles and lower flight — and why AeroGuard tries to make droplets fall faster."><b>小结：</b>这就是为什么有风时建议换大液滴喷头、降低飞行高度——也是 AeroGuard 想让液滴“落得更快”的原因。</p>
   </div>
+  <div class="plain"><span class="plain-h" data-en="WHAT THE SIMULATOR LEAVES OUT">模拟器简化了什么</span>
+   <p data-en="This page uses a single droplet in a steady wind, which is the clearest way to see the rule “drift = wind × time in air”. The full model goes further: wind fluctuates around its mean (gust strength is a percentage of wind speed), droplets leave from anywhere across the 8 m boom rather than one point, and thousands of sizes are mixed together.">这个页面演示的是单颗液滴在稳定风中的运动，最能直观看出“漂移 = 风速 × 空中时间”的规律。完整模型更进一步：风会围绕平均值随机起伏（阵风强度按风速的百分比计），液滴从 8 米宽喷杆的任意位置喷出而不是一个点，上万种粒径混合在一起。</p>
+   <p data-en="Evaporation is not yet included, so the furthest distances shown for fine mist are upper bounds — in hot, dry air those droplets would shrink and could travel even differently. Field data will tell us how big that effect is.">目前还没有计入蒸发，所以细雾的最远距离是“上限估计”——在高温干燥的天气里，这些液滴会边飘边变小，轨迹也会不同。蒸发影响有多大，需要用田间实测数据来回答。</p>
+  </div>
  </div>
  <div class="reveal d1">
   <div class="viz"><svg id="sim" viewBox="0 0 600 320" role="img" aria-label="液滴飘移示意图"></svg></div>
@@ -603,6 +639,10 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
    <p data-en="The horizontal axis is wind speed; the vertical axis is the metric you pick. Shaded areas mark the industry’s “fly with caution” (&gt;3 m/s) and “unsuitable” (&gt;5 m/s) zones.">横轴是风速，纵轴是你选的指标；阴影区分别是行业建议的“慎飞”（&gt;3 m/s）和“不宜作业”（&gt;5 m/s）范围。</p>
    <p data-en="As wind rises from 2 to 8 m/s, the spray kept in the field falls from about 90% to about 60%, and the farthest landing point stretches to over 1.7 km. Click a column header to sort; hover a row to highlight it on the chart.">风从 2 m/s 升到 8 m/s，留在田里的药从约九成降到约六成，最远落点拉长到 1.7 公里以上。点击表头可排序，鼠标移到某一行，曲线上会同步标出对应的点。</p>
   </div>
+  <div class="plain"><span class="plain-h" data-en="WHY IT GETS WORSE FASTER THAN IT LOOKS">为什么风大了问题加速变重</span>
+   <p data-en="Off-field mass grows almost in step with wind speed: roughly 5% per extra 1 m/s at low wind. But the damage is not spread evenly — the fine fraction that escapes also travels further, so the polluted area outside the field grows much faster than the percentage. At the 2 m/s baseline, the 8.3 g that escapes already touches about 7,900 m² of land beyond the field edge, as much as 3 times the field itself.">出田药量几乎随风速同步增长：低风速时每增加 1 m/s 约多飘出 5%。但危害并不是平均分摊的——跑出去的细雾同时飘得更远，所以田外受影响的面积比百分比增长得快得多。在 2 m/s 基线下，飘出的 8.3 克药就已波及田外约 7900 平方米，相当于试验田本身的 3 倍多。</p>
+   <p data-en="Timing tells the same story: 99% of the spray lands within 135 s, only 2 s after the drone finishes. The last 1% — the finest mist — takes until 344 s. It is a small amount of chemical, but it is exactly the part nobody controls.">时间上也一样：99% 的药液在 135 秒内落地，只比无人机作业结束晚 2 秒；而最后 1% 的细雾要到 344 秒才全部落下。这部分药量不大，却正是最难控制、最容易飘到邻田和水体的部分。</p>
+  </div>
  </div>
  <div class="reveal d1">
   <div class="dt-wrap"><table class="dt" id="dt">
@@ -632,11 +672,21 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
   <div class="plain"><span class="plain-h" data-en="WHAT THE THREE SCORES MEAN">三个分数分别说明什么</span>
    <p data-en="<b>Did the spray stay?</b> 88.98% landed in the field — above the 85% pass line.<br><b>Were spots missed?</b> Cut the field into 3 × 3 m squares: 33 of 260 got too little spray, under the 25% limit.<br><b>Was it even?</b> CV measures unevenness — lower is better. At 45.9%, some spots get much more than others (the heaviest spots get about 4× a typical spot), so this is what we improve next."><b>药留住了吗？</b>88.98% 落在田里，高于 85% 及格线。<br><b>有没有漏喷？</b>把田切成 3×3 米的小格，260 格里有 33 格药偏少，低于 25% 的上限。<br><b>撒得匀不匀？</b>CV 衡量“不均匀程度”，越小越好。45.9% 说明有的地方多、有的地方少（药最多处约是一般位置的 4 倍），这是下一步要改进的。</p>
   </div>
+  <div class="plain"><span class="plain-h" data-en="HOW EACH SCORE IS JUDGED">每个分数是怎么判定的</span>
+   <p data-en="We judge at two scales on purpose. Deposition is mapped on a fine 0.3 m grid so the edges of the spray band are sharp, but “missed spots” are judged on 3 m blocks — roughly the size a farmer would notice. A block counts as under-sprayed if it received less than half of the typical (median) block.">我们故意用两种尺度来评判：沉积量画在 0.3 米的细网格上，让药带边缘清晰可见；但“漏喷”按 3 米方块判断——这大约是农户在田里能看出差别的尺度。某个方块的药量不到一般方块（中位数）的一半，就算作落药偏少。</p>
+   <p data-en="The unevenness has a clear cause: big droplets carry most of the chemical and land close to their pass line, so deposition peaks under each pass and dips between them. This points to concrete fixes — tuning pass spacing, nozzle choice and the airflow AeroGuard adds — rather than simply spraying more.">不均匀的原因也很清楚：大液滴携带了大部分药量，且落在航线正下方附近，所以每趟航线下方药多、两趟之间药少。这给出了具体的改进方向——调整航线间距、喷头选型和 AeroGuard 的导流气流，而不是简单地多喷药。</p>
+  </div>
  </div>
- <div class="meters reveal d1">
+ <div class="reveal d1">
+ <div class="meters">
   <div class="meter"><div><div class="num count-up">88.98<small>%</small></div></div><div><h3><span data-en="In-field deposition">田内沉积占比</span><span class="badge" data-en="Pass">达标</span></h3><p data-en="Computed on a 0.3 m deposition grid.">按 0.3 m 网格沉积量计算。</p><div class="gauge" style="--v:88.98%"><i></i><s style="--t:85%" data-l="85%"></s></div></div></div>
   <div class="meter"><div><div class="num count-up">12.69<small>%</small></div></div><div><h3><span data-en="Low-deposition blocks">漏喷块率</span><span class="badge" data-en="Pass">达标</span></h3><p data-en="33 of 260 blocks at the 3 m working scale.">3 m 作业方块中 33 / 260 块落药偏少。</p><div class="gauge" style="--v:12.69%"><i></i><s style="--t:25%" data-l="25%"></s></div></div></div>
   <div class="meter warn"><div><div class="num count-up">45.9<small>%</small></div></div><div><h3><span data-en="Coefficient of variation">变异系数 CV</span><span class="badge w" data-en="Focus">优化重点</span></h3><p data-en="Deposition is still uneven — the next thing to improve.">沉积仍不够均匀，是下一步优化的重点。</p><div class="gauge" style="--v:45.9%"><i></i></div></div></div>
+ </div>
+ <figure class="fig">
+  <img src="assets/deposition.svg" alt="基线工况沉积场热图" loading="lazy" width="519" height="350">
+  <figcaption data-en="Baseline deposition field (2.0 m/s crosswind, 10 passes). Green frame: field · dashed: spray segments · dotted: 3 m headland flown with nozzles off · red outline: off-field drift. Bright streaks under each pass and dips between them are the unevenness behind CV 45.9%.">基线沉积场（2.0 m/s 横风，10 趟）。绿框=田界 · 虚线=喷洒段 · 点线=田头 3 m 只飞不喷 · 红描边=田外漂移区。每趟航线下方偏亮、两趟之间偏暗，正是 CV 45.9% 的来源。</figcaption>
+ </figure>
  </div>
 </div></div></section>
 
@@ -659,6 +709,10 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
   <div class="plain"><span class="plain-h" data-en="WHO BENEFITS?">谁会受益？</span>
    <p data-en="Less drift helps more than the farmer. Growers protect the same harvest with less product; nearby rivers, ponds and bees see less pollution; and operators and families living beside the field breathe in less spray mist.">少飘一点药，受益的不只是农民：种植者用更少的药保住同样的收成；附近的河流、鱼塘和蜜蜂少受污染；喷药的人和住在田边的居民少吸入药雾。</p>
    <p data-en="Rather than just saying “eco-friendly”, we tie every benefit to something that can be measured in the field — and the next step is to go measure it on a 60 × 40 m test plot.">我们不想只喊“环保”，所以每项好处都对应一个能在田里实际测量的指标——下一步就是到一块 60×40 米的试验田里去量。</p>
+  </div>
+  <div class="plain"><span class="plain-h" data-en="WHAT A WIDER WIND WINDOW MEANS">风速窗口变宽意味着什么</span>
+   <p data-en="Today, at around 3 m/s a drone operator must slow down or stop, and above 5 m/s spraying is not advised. Wind does not wait for the crop: pests and diseases have a short treatment window, and missing it can cost far more than the chemical itself.">目前风速到 3 m/s 左右飞手就得谨慎作业，超过 5 m/s 则不宜喷洒。但病虫害不会等风停——防治往往只有几天的窗口期，错过它的损失可能远超药钱本身。</p>
+   <p data-en="If AeroGuard can keep deposition above 85% at somewhat higher winds, farmers gain usable working hours, use less product per hectare and spray less often to make up for drift. Those are the gains the field pilot is designed to measure, not just to claim.">如果 AeroGuard 能在稍大一些的风里仍把田内沉积保持在 85% 以上，农户就能多出可作业的时间，每亩用药更少，也不必因为飘移再补喷。这些收益正是田间试点要去实测、而不是只停留在口头上的内容。</p>
   </div>
  </div>
  <div class="reveal d1">
@@ -711,6 +765,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
   </div>
   <div class="plain"><span class="plain-h" data-en="HOW WE SPLIT THE WORK">我们怎么分工</span>
    <p data-en="The four workstreams work like a relay: first understand how a single droplet falls, then plan how the drone flies, then add up how much spray lands across the whole field — and finally a separate method recalculates everything to make sure nothing was miscounted.">四条工作线像一场接力：先弄清一颗液滴怎么落，再规划无人机怎么飞，然后统计整片田落了多少药，最后用另一套独立方法把结果重新算一遍，确保没有算错。</p>
+   <p data-en="That last check is not a formality: an independent notebook rebuilt the whole pipeline — the same random number generator, route planner and deposition grid — and reproduced all 26 readings shown on this site to the last digit. Next, the field pilot will check the model against reality itself.">最后这步校核不是走过场：我们用一份独立的计算笔记本从零重写了整条流程——同样的随机数生成器、航线规划和沉积网格——网站上展示的 26 项读数逐位一致。下一步，田间试点将把模型和真实世界直接对照。</p>
   </div>
  </div>
 </div></div></section>
