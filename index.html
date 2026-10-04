@@ -201,13 +201,14 @@ h3{font-size:17px;font-weight:500;line-height:1.45}
 
 /* Team */
 blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent);font:500 clamp(18px,1.7vw,22px)/1.6 var(--serif)}
-.team{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .member{text-align:center}
 .avatar{aspect-ratio:1;width:min(120px,100%);margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;background:var(--paper2);color:var(--muted);font:300 20px/1 var(--sans);overflow:hidden;transition:transform .4s}
 .member:hover .avatar{transform:translateY(-4px)}
 .avatar img{width:100%;height:100%;object-fit:cover}
 .member b{display:block;font:500 16px/1.4 var(--serif)}
 .member span{display:block;margin-top:2px;font-size:12px;color:var(--muted)}
+.member p{margin-top:10px;font-size:13px;line-height:1.6;color:var(--muted);text-align:left}
 .streams{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;border-top:1px solid var(--line)}
 .streams div{padding:18px 16px 0 0;font-size:13px;color:var(--muted)}
 .streams div+div{padding-left:16px;border-left:1px solid var(--line)}
@@ -336,7 +337,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  .site-foot .wrap>div:first-child{grid-column:1/-1}
  .pilot-steps{grid-template-columns:repeat(2,1fr)}
  .chain{grid-template-columns:repeat(3,1fr);row-gap:24px}
- .team{grid-template-columns:repeat(3,1fr);row-gap:28px}
+ .team{grid-template-columns:repeat(2,1fr);row-gap:28px}
  .streams{grid-template-columns:repeat(2,1fr);row-gap:20px}
  .streams div:nth-child(3){padding-left:0;border-left:0}
  .ba{max-height:none}
@@ -683,7 +684,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  <header class="sec-head reveal">
   <div class="kicker" data-en="Team">团队</div>
   <h2 data-en="The people <em>behind AeroGuard.</em>">AeroGuard <em>背后的团队</em></h2>
-  <p class="lead" data-en="It started as a spray-parameter calculator and grew into a full tool for droplets, routes, drift and coverage.">项目从一个喷洒参数计算器起步，逐步扩展为涵盖液滴、航线、飘移与覆盖分析的完整工具。</p>
+  <p class="lead" data-en="We formed our team after seeing the chemical waste, off-target exposure and environmental risk caused by wind-driven drift in drone spraying. Determined to replace guess-based operations with a physics-driven system, we split our roles to bridge algorithms, hardware and business.">我们因同一个问题走到一起：植保无人机喷洒时，风致飘移造成严重的药液浪费、非靶区暴露和环境风险。为了用基于物理的系统取代“凭经验估计”的作业方式，我们分工协作，打通算法、硬件与商业三端。</p>
  </header>
  <div class="cols">
  <div class="reveal">
@@ -697,11 +698,10 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
  </div>
  <div class="reveal d1">
   <div class="team">
-   <div class="member"><div class="avatar" aria-hidden="true">01</div><b data-en="Name">姓名</b><span data-en="Role TBD">职责待定</span></div>
-   <div class="member"><div class="avatar" aria-hidden="true">02</div><b data-en="Name">姓名</b><span data-en="Role TBD">职责待定</span></div>
-   <div class="member"><div class="avatar" aria-hidden="true">03</div><b data-en="Name">姓名</b><span data-en="Role TBD">职责待定</span></div>
-   <div class="member"><div class="avatar" aria-hidden="true">04</div><b data-en="Name">姓名</b><span data-en="Role TBD">职责待定</span></div>
-   <div class="member"><div class="avatar" aria-hidden="true">05</div><b data-en="Name">姓名</b><span data-en="Role TBD">职责待定</span></div>
+    <div class="member"><div class="avatar" aria-hidden="true">SG</div><b>Shenghan Guo</b><span data-en="Market validation &amp; pitch">市场验证与路演</span><p data-en="Leads market validation and structures our Lean Canvas and pitch strategy.">负责市场验证，搭建精益画布（Lean Canvas）并制定路演策略。</p></div>
+    <div class="member"><div class="avatar" aria-hidden="true">YY</div><b>Yuhang Yao</b><span data-en="Web platform">交互网站平台</span><p data-en="Architects the interactive web platform, turning complex spray datasets into an accessible pilot console.">搭建交互式网站平台，把复杂的喷洒数据变成飞手易用的操作台。</p></div>
+    <div class="member"><div class="avatar" aria-hidden="true">XW</div><b>Xiyan Wang</b><span data-en="Hardware integration">硬件集成</span><p data-en="Directs hardware integration: sensor assembly and aerodynamic prototype debugging.">主导硬件集成，负责传感器装配与气动原型调试。</p></div>
+    <div class="member"><div class="avatar" aria-hidden="true">ZF</div><b>Zichen Feng</b><span data-en="Simulation software">仿真软件</span><p data-en="Develops the core simulation software, computing droplet kinematics and grid-based deposition metrics.">开发核心仿真软件，计算液滴运动学与基于网格的沉积指标。</p></div>
   </div>
   <div class="streams">
    <div><b data-en="01 · Droplet physics">01 · 液滴物理</b><span data-en="Size sampling, terminal velocity">粒径抽样与终端速度</span></div>
