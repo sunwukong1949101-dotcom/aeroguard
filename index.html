@@ -520,7 +520,7 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
    <img src="assets/dsd.svg" alt="数量加权与质量加权的滴谱对比" loading="lazy" width="417" height="222">
    <figcaption data-en="Droplet spectrum by count vs by mass. Fine drops are the majority, but mass ∝ D³ puts most of the chemical in coarse drops — only 1,964 droplets (16%) effectively carry the dose.">滴谱：按数量 vs 按质量。细滴占多数，但质量 ∝ D³，药量主要在粗滴里——实际起作用的有效样本只有 1964 颗（16%）。</figcaption>
   </figure>
-  <p class="caveat" data-en="<b>Note:</b> these checks confirm the model is implemented consistently — not yet its real-world effect, which the field pilot will test."><b>说明：</b>校核验证的是模型实现一致性，不等同于田间效果验证，后者将由田间试点检验。</p>
+  <p class="caveat" data-en="<b>Note:</b> these checks confirm the model is implemented consistently. A single-nozzle field test has been used to correct the falling stage (below); whole-aircraft field effect will be tested in the pilot."><b>说明：</b>校核验证的是模型实现一致性；单喷头实测已用于修正下落阶段（见下图），整机田间效果仍待试点检验。</p>
   <div class="plain"><span class="plain-h" data-en="WHY THE MODEL CAN BE TRUSTED">为什么模型可信</span>
    <p data-en="Each random input uses its own seeded stream, so changing the wind never reshuffles droplets — differences come only from the condition changed. Landing weights sum to exactly 1, so sprayed and deposited mass agree to 0.999973.">每类随机量各用一条固定种子的随机流，改变风速不会把液滴“重新洗牌”，结果差异只来自所改的条件；落点分配权重之和为 1，所以喷出与落下的药量能对到 0.999973。</p>
   </div>
@@ -551,6 +551,10 @@ blockquote{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent)
    </dl>
   </div>
  </div>
+ <figure class="fig wide reveal">
+  <img src="assets/fieldcheck.svg" alt="水敏纸实测、原模型与修正模型的漂移距离对比" loading="lazy" width="501" height="219">
+  <figcaption data-en="<b>Field check — KZ80-06 single nozzle, water-sensitive paper, 1.5–2.2 m high.</b> Assuming droplets fall freely from rest overestimated drift 9–22×: a pressurised nozzle’s jet carries droplets down fast. Switching to a “jet + wind” falling model brings the error to about 20–50%. With only 5 data points so far, repeat tests will narrow the range."><b>实地校验：KZ80-06 单喷头 · 水敏纸 · 高度 1.5–2.2 m。</b>原模型假设液滴从静止自由沉降，把漂移距离高估了 9–22 倍——实际上加压喷头的射流会带着雾滴快速落地。换成“射流 + 风”的下落模型后，误差缩小到约 20–50%。目前只有 5 个实测点，后续重复实验会让范围进一步收窄。</figcaption>
+ </figure>
 </div></div></section>
 
 <!-- 模拟 -->
