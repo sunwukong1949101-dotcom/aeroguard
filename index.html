@@ -407,8 +407,8 @@ h1 em,h2 em{background:linear-gradient(90deg,#7ee081,#3fd8e8);-webkit-background
 .header::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,#7ee081,#3fd8e8,transparent) no-repeat;background-size:40% 100%;animation:agSweep 6s linear infinite;opacity:.8}
 @keyframes agSweep{from{background-position:-40% 0}to{background-position:140% 0}}
 .header.scrolled{box-shadow:0 10px 30px #0007}
-.logo{mix-blend-mode:normal;border-radius:12px;background-color:#f3faf6;box-shadow:0 6px 20px #7ee08140;animation:agGlow 4s ease-in-out infinite}
-@keyframes agGlow{50%{box-shadow:0 6px 26px #3fd8e866}}
+.logo{width:44px;height:46px;mix-blend-mode:normal;background:url(assets/logo-mark.png) center/contain no-repeat;filter:drop-shadow(0 0 6px #7ee08155);animation:agGlow 4s ease-in-out infinite}
+@keyframes agGlow{50%{filter:drop-shadow(0 0 10px #3fd8e877)}}
 .brand{font-weight:700;letter-spacing:.5px}
 .brand small{color:var(--dim);letter-spacing:1.4px}
 .nav{color:var(--muted)}
